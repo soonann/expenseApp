@@ -12,8 +12,6 @@ import { ProfilePage } from '../pages/profile/profile';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 
 
-import { MenuPage } from '../pages/menu/menu';
-
 
 
 @Component({
@@ -21,7 +19,7 @@ import { MenuPage } from '../pages/menu/menu';
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-    rootPage:any = MenuPage;
+    rootPage:any = SubmitExpensePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

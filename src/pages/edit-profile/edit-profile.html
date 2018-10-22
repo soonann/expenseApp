@@ -24,17 +24,17 @@
     </ion-item>
     <ion-card id="editProfile-card24">
       <ion-list>
-        <img src="assets/img/5zb5eGcLSwaJDnmymzeN_profile-female.jpg" />
+        <img [src]="imgSrc" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;" />
         <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
           <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
         </div>
         <h4 id="editProfile-heading1" style="color:#000000;">
           Profile Image
         </h4>
-        <button id="editProfile-button11" ion-button color="positive">
+        <button id="editProfile-button11" ion-button color="positive" (click)="getFromCamera()">
           Camera
         </button>
-        <button id="editProfile-button10" ion-button color="positive">
+        <button id="editProfile-button10" ion-button color="positive" (click)="getFromAlbum()">
           Photo Album
         </button>
       </ion-list>

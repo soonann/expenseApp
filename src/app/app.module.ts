@@ -11,9 +11,10 @@ import { LoginPage } from '../pages/login/login';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import { ProfilePage } from '../pages/profile/profile';
 
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ProfilePage
   ],
   providers: [
+    Camera,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
