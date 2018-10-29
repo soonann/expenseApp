@@ -10,11 +10,11 @@ import { SignupPage } from '../pages/signup/signup';
 import { LoginPage } from '../pages/login/login';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import { ProfilePage } from '../pages/profile/profile';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 import { Camera } from '@ionic-native/camera';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +30,7 @@ import { Camera } from '@ionic-native/camera';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
