@@ -13,8 +13,8 @@ import { ProfilePage } from '../pages/profile/profile';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 import { Camera } from '@ionic-native/camera';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,6 +30,7 @@ import { Camera } from '@ionic-native/camera';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
