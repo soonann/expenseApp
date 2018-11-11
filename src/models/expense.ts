@@ -7,7 +7,8 @@ export class Expense {
       public amount: number,
       public category: string,
       public merchant: string,
-      public notes?: string
+      public notes?: string,
+      public favIcon?: string
     ) {  
 
     }
