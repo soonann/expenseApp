@@ -1,6 +1,8 @@
 import { Component , OnInit} from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Expense }    from '../../models/expense';
+import { SubmitExpensePage } from '../submit-expense/submit-expense';
+import { ExpenseDetailPage } from '../expense-detail/expense-detail';
 
 @Component({
   selector: 'page-view-expenses',
@@ -12,7 +14,18 @@ export class ViewExpensesPage implements OnInit{
 
   constructor(public navCtrl: NavController) {
   }
+  goToExpenseDetail(params){
 
+    if (!params) params = {};
+
+  this.navCtrl.push(ExpenseDetailPage, params);
+
+  }
+  goToSubmitExpense(){
+
+    this.navCtrl.push(SubmitExpensePage);
+
+  }
   ngOnInit() {
 
     this.expenses = [

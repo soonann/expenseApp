@@ -9,21 +9,37 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page3">
-  <ion-list id="expenseDetail-list3">
-    <ion-item color="none" id="expenseDetail-list-item10">
-      Date
+  <ion-list>
+
+    <ion-item color="none" >
+
+      {{expense.date}}
+
     </ion-item>
-    <ion-item color="none" id="expenseDetail-list-item11">
-      Amount
+
+    <ion-item color="none">
+
+      ${{expense.amount}}
+
     </ion-item>
-    <ion-item color="none" id="expenseDetail-list-item12">
-      Category
+
+    <ion-item color="none" >
+
+      {{expense.category}}
+
     </ion-item>
-    <ion-item color="none" id="expenseDetail-list-item14">
-      Merchant
+
+    <ion-item color="none">
+
+      {{expense.merchant}}
+
     </ion-item>
-    <ion-item color="none" id="expenseDetail-list-item13">
-      Notes
+
+    <ion-item color="none" >
+
+      {{expense.notes}}
+
     </ion-item>
+
   </ion-list>
 </ion-content>

@@ -7,7 +7,7 @@
       View Expenses
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only solid>
+      <button ion-button icon-only solid (click)="goToSubmitExpense()">
         <ion-icon name="add"></ion-icon>
       </button>
     </ion-buttons>
@@ -23,7 +23,7 @@
 
       <ion-item color="none" >
 
-        <h1> {{expenseItem.merchant}} </h1>
+        <h1 (click)="goToExpenseDetail(expenseItem)"> {{expenseItem.merchant}} </h1>
 
         <p> ${{expenseItem.amount}} </p>
 
