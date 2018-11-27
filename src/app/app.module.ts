@@ -11,6 +11,7 @@ import { LoginPage } from '../pages/login/login';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import { ProfilePage } from '../pages/profile/profile';
 
+import {ExpenseService} from '../providers/expense-service';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
@@ -49,6 +50,7 @@ import { FormsModule }   from '@angular/forms';
     Camera,
     StatusBar,
     SplashScreen,
+    ExpenseService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

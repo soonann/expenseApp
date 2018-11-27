@@ -1,8 +1,11 @@
+import { ExpenseService } from './../../providers/expense-service';
 import { Component , OnInit} from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Expense }    from '../../models/expense';
 import { SubmitExpensePage } from '../submit-expense/submit-expense';
 import { ExpenseDetailPage } from '../expense-detail/expense-detail';
+
+
 
 @Component({
   selector: 'page-view-expenses',
@@ -12,8 +15,33 @@ export class ViewExpensesPage implements OnInit{
 
   expenses: Expense[];
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private expenseService:ExpenseService) 
+  {
+    
   }
+  ngOnInit() {
+
+    this.expenseService.getExpenses().subscribe(expenses => this.expenses = expenses);
+    for (let item of this.expenses){
+      if(!item.favIcon!){
+        item.favIcon = 'heart-outline';
+      }
+    }
+
+
+    /*[
+  
+      new Expense("14/3/2018", 1250, "Accomodation","RWS Hotel","travel","heart-outline"),
+  
+      new Expense("15/3/2018", 20, "Transport", "Uber","meeting","heart-outline"),
+  
+      new Expense("17/3/2018", 130, "Meal", "Hai Di Lao","lunch","heart-outline")
+  
+    ];
+    */
+  
+  }
+
   goToExpenseDetail(params){
 
     if (!params) params = {};
@@ -26,19 +54,7 @@ export class ViewExpensesPage implements OnInit{
     this.navCtrl.push(SubmitExpensePage);
 
   }
-  ngOnInit() {
 
-    this.expenses = [
-  
-      new Expense("14/3/2018", 1250, "Accomodation","RWS Hotel","travel","heart-outline"),
-  
-      new Expense("15/3/2018", 20, "Transport", "Uber","meeting","heart-outline"),
-  
-      new Expense("17/3/2018", 130, "Meal", "Hai Di Lao","lunch","heart-outline")
-  
-    ];
-  
-  }
   toggleFav(item:Expense){
 
     if (item.favIcon == "heart-outline")
@@ -80,9 +96,16 @@ export class ViewExpensesPage implements OnInit{
 
       item.notes.toLowerCase().includes(val.toLowerCase()) ||
 
-      item.category.toLowerCase().includes(val.toLowerCase())
+      item.category.toLowerCase().includes(val.toLowerCase()) || 
 
-    )
+      item.notes && 
+      item.notes.toLowerCase().includes(val.toLowerCase())
+      )
+
+      
+
+
+    
 
   }
 
