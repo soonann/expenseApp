@@ -4,6 +4,7 @@ import { NavController } from 'ionic-angular';
 import { Expense }    from '../../models/expense';
 import { SubmitExpensePage } from '../submit-expense/submit-expense';
 import { ExpenseDetailPage } from '../expense-detail/expense-detail';
+import { ExpenseFbProvider } from '../../providers/expense-firebase';
 
 
 
@@ -15,18 +16,23 @@ export class ViewExpensesPage implements OnInit{
 
   expenses: Expense[];
 
-  constructor(public navCtrl: NavController, private expenseService:ExpenseService) 
+  constructor(public navCtrl: NavController, private expenseService: ExpenseFbProvider) 
   {
     
   }
   ngOnInit() {
 
-    this.expenseService.getExpenses().subscribe(expenses => this.expenses = expenses);
-    for (let item of this.expenses){
-      if(!item.favIcon!){
-        item.favIcon = 'heart-outline';
+    this.expenseService.getItems().subscribe( exp => {
+
+      this.expenses = exp;
+      for (let item of this.expenses){
+        if(!item.favIcon || item.favIcon.trim() != ''){
+          item.favIcon = 'heart-outline';
+        }
       }
-    }
+    } );
+
+  
 
 
     /*[
@@ -70,8 +76,8 @@ export class ViewExpensesPage implements OnInit{
  
 
   deleteItem(item:Expense){
-
-    this.expenses.splice(this.expenses.indexOf(item),1);
+    this.expenseService.removeItem(item);
+    // this.expenses.splice(this.expenses.indexOf(item),1);
 
   }
     
@@ -80,10 +86,12 @@ export class ViewExpensesPage implements OnInit{
 
     // Reset items back to all of the items
 
-   this.ngOnInit();
+  //  this.ngOnInit();
 
- 
+   let val = ev.target.value;
 
+   this.expenses = this.expenseService.searchItems(val)
+    /*
     // set val to the value of the searchbar
 
     let val = ev.target.value;
@@ -102,12 +110,12 @@ export class ViewExpensesPage implements OnInit{
       item.notes.toLowerCase().includes(val.toLowerCase())
       )
 
-      
+     
 
 
     
 
   }
-
+ */
   }
 }

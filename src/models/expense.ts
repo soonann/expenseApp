@@ -1,6 +1,7 @@
 export class Expense {
 
  
+    status?: string;
 
     constructor(
       public date: string,
@@ -11,6 +12,13 @@ export class Expense {
       public favIcon?: string
     ) {  
 
+      if(!this.favIcon){
+        this.favIcon = 'heart-outline';
+      }
+      if (!this.notes){
+        this.notes = '';
+      }
+      this.status = "pending";
     }
 
  

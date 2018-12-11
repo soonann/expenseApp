@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Expense } from '../../models/expense';
 import { NgForm } from '@angular/forms';
+import { ExpenseFbProvider } from '../../providers/expense-firebase';
 
 @Component({
   selector: 'page-submit-expense',
@@ -13,7 +14,7 @@ export class SubmitExpensePage {
   expense: Expense;
   submitted = false;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,public expenseService:ExpenseFbProvider) {
     this.categories = ['Travel', 'Meals', 'Accomodation', 'Others'];
     this.expense = new Expense(new Date().toISOString(), 0, this.categories[0], '');
   }
@@ -26,6 +27,7 @@ export class SubmitExpensePage {
     this.submitted = true;
 
     if (form.valid && this.expense.amount > 0) {
+      this.expenseService.addItem(this.expense);
     alert('Expense submitted:'
 
       + "\n Date: " + this.expense.date

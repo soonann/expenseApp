@@ -16,6 +16,20 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
 import { FormsModule }   from '@angular/forms';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { ExpenseFbProvider } from '../providers/expense-firebase';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA6EGf4dw03QiPcOAg55VuDXCAHdeJrDu8",
+  authDomain: "expenseapp-7f49f.firebaseapp.com",
+  databaseURL: "https://expenseapp-7f49f.firebaseio.com",
+  projectId: "expenseapp-7f49f",
+  storageBucket: "expenseapp-7f49f.appspot.com",
+  messagingSenderId: "393025545723"
+};
+
+
 
 @NgModule({
   declarations: [
@@ -32,7 +46,10 @@ import { FormsModule }   from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp)
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -51,6 +68,7 @@ import { FormsModule }   from '@angular/forms';
     StatusBar,
     SplashScreen,
     ExpenseService,
+    ExpenseFbProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

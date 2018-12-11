@@ -19,7 +19,7 @@ import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-    rootPage:any = SubmitExpensePage;
+    rootPage:any = ViewExpensesPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
