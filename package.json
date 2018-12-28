@@ -40,11 +40,12 @@
     "rxjs": "^6.3.3",
     "rxjs-compat": "^6.3.3",
     "sw-toolbox": "3.6.0",
+    "@ionic/app-scripts": "3.2.0",
+    "typescript": "~2.6.2",
     "zone.js": "0.8.26"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "3.2.0",
-    "typescript": "~2.6.2"
+
   },
   "description": "An Ionic project",
   "cordova": {
