@@ -25,6 +25,7 @@ import { ExpenseFbProvider } from '../providers/expense-firebase';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from '../providers/auth-service';
 import { AngularFireStorageModule } from 'angularfire2/storage';
+import { StockData } from '../providers/stockData';
 
 const firebaseConfig = {
   apiKey: "AIzaSyA6EGf4dw03QiPcOAg55VuDXCAHdeJrDu8",
@@ -75,6 +76,7 @@ const firebaseConfig = {
     HttpPage
   ],
   providers: [
+    StockData,
     AuthService,
     Camera,
     StatusBar,

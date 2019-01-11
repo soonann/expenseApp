@@ -1,0 +1,39 @@
+<ion-header>
+
+    <ion-navbar>
+  
+      <ion-title>
+  
+        Stock Time Series Intraday
+  
+      </ion-title>
+  
+    </ion-navbar>
+  
+  </ion-header>
+  
+   
+  
+  <ion-content padding>
+  
+    <ion-list>
+  
+      <ion-item *ngFor="let item of items">
+  
+        <h1>{{item.date}}</h1>
+  
+        <p>Open: {{item.open}}</p>
+  
+        <p>High: {{item.high}}</p>
+  
+        <p>Low: {{item.low}}</p>
+  
+        <p>Close: {{item.close}}</p>
+  
+        <p>Volume: {{item.volume}}</p>
+  
+      </ion-item>
+  
+    </ion-list>
+  
+  </ion-content>
