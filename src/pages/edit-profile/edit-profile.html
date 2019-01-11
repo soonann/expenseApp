@@ -9,22 +9,24 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page7">
+
+
   <form id="editProfile-form4">
     <ion-item id="editProfile-input10">
       <ion-label>
         Email
       </ion-label>
-      <ion-input type="email" placeholder=""></ion-input>
+      <ion-input type="email"  placeholder="You are not logged in" name='email' [(ngModel)]="user.email" ></ion-input>
     </ion-item>
     <ion-item id="editProfile-input11">
       <ion-label>
         Name
       </ion-label>
-      <ion-input type="text" placeholder=""></ion-input>
+      <ion-input type="text"placeholder="You are not logged in" name='name' [(ngModel)]="user.name" ></ion-input>
     </ion-item>
     <ion-card id="editProfile-card24">
       <ion-list>
-        <img [src]="imgSrc" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;" />
+        <img [src]="imgSrc" style="display:block;width :100%;height:auto;margin-left:auto;margin-right:auto;" />
         <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
           <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
         </div>
@@ -40,7 +42,7 @@
       </ion-list>
     </ion-card>
   </form>
-  <button id="editProfile-button12" ion-button color="positive" block>
+  <button id="editProfile-button12" ion-button color="positive"  (click)="updateProfile()" block>
     Save
   </button>
 </ion-content>

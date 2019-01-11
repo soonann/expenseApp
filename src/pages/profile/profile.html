@@ -7,29 +7,27 @@
       Profile
     </ion-title>
     <ion-buttons end>
-      <button ion-button solid>
+        <button ion-button solid (click)="goToEditProfile()">
         Edit
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page8">
-  <button id="profile-button13" ion-button color="positive" block on-click="goToEditProfile()">
-    Edit (temp button)
-  </button>
+
   <form id="profile-form5">
     <ion-item id="profile-input12">
       <ion-label>
         Email
       </ion-label>
-      <ion-input type="email" placeholder=""></ion-input>
+      <ion-input type="email" [(ngModel)]="user.email" name="email" disabled></ion-input>
     </ion-item>
     <ion-item id="profile-input13">
       <ion-label>
         Name
       </ion-label>
-      <ion-input type="text" placeholder=""></ion-input>
+      <ion-input type="text"[(ngModel)]="user.name" name="name" disabled></ion-input>
     </ion-item>
   </form>
-  <img src="assets/img/DA4TxZ1tT3WBAqN9qKP8_profile-female.jpg" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;" />
+  <img [src]="imgSrc" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;" />
 </ion-content>

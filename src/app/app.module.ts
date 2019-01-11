@@ -1,3 +1,4 @@
+import { HttpPage } from './../pages/http/http';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -11,6 +12,8 @@ import { LoginPage } from '../pages/login/login';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import { ProfilePage } from '../pages/profile/profile';
 
+
+import { HttpClientModule } from '@angular/common/http';
 import {ExpenseService} from '../providers/expense-service';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -21,7 +24,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { ExpenseFbProvider } from '../providers/expense-firebase';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from '../providers/auth-service';
-
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 const firebaseConfig = {
   apiKey: "AIzaSyA6EGf4dw03QiPcOAg55VuDXCAHdeJrDu8",
@@ -44,9 +47,12 @@ const firebaseConfig = {
     SignupPage,
     LoginPage,
     EditProfilePage,
-    ProfilePage
+    ProfilePage,
+    HttpPage
   ],
   imports: [
+    AngularFireStorageModule,
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     AngularFireDatabaseModule,
@@ -65,7 +71,8 @@ const firebaseConfig = {
     SignupPage,
     LoginPage,
     EditProfilePage,
-    ProfilePage
+    ProfilePage,
+    HttpPage
   ],
   providers: [
     AuthService,

@@ -28,7 +28,29 @@ export class AuthService {
 
     }
 
- 
+        
+
+    saveImage(imageData: string, imageUrl: string, contentType:{}) {
+
+        var ref = firebase.storage().ref();
+    
+        var photoRef = ref.child(imageUrl);
+    
+        return photoRef.putString(imageData, 'base64', { contentType: 'image/jpeg' });
+    
+      }
+    
+     
+
+    getDownloadUrl(imageUrl: string) {
+
+    var ref = firebase.storage().ref();
+
+    var photoRef = ref.child(imageUrl);
+
+    return photoRef.getDownloadURL();
+
+    }
 
     getCurrentUserObserver() {
 

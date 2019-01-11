@@ -1,3 +1,4 @@
+import { HttpPage } from './../pages/http/http';
 import { AuthService } from './../providers/auth-service';
 import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav } from 'ionic-angular';
@@ -13,15 +14,12 @@ import { ProfilePage } from '../pages/profile/profile';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 
 
-import { AuthService } from '../providers/auth-service';
-
-
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-    rootPage:any = ViewExpensesPage;
+    rootPage:any = LoginPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private authService:AuthService) {
     platform.ready().then(() => {
@@ -53,8 +51,12 @@ export class MyApp {
     if (!params) params = {};
     this.navCtrl.setRoot(EditProfilePage);
   }logout(){
-
     this.authService.logout();
 
    }
+  http(params){
+  if (!params) params = {};
+  this.navCtrl.setRoot(HttpPage);
+  }
+
 }
