@@ -15,17 +15,18 @@
         <ion-label>
           Email
         </ion-label>
-        <ion-input type="email" placeholder=""></ion-input>
+        <ion-input type="email" placeholder=""  [(ngModel)]="user.email" name="email" ></ion-input>
       </ion-item>
       <ion-item id="login-input9">
         <ion-label>
           Password
         </ion-label>
-        <ion-input type="password" placeholder=""></ion-input>
+        <ion-input type="password" placeholder="" [(ngModel)]="user.password" name="password" ></ion-input>
       </ion-item>
     </ion-list>
+    <div ion-text padding-left color="danger">{{loginError}}</div>
     <div class="spacer" style="height:40px;" id="login-spacer1"></div>
-    <button id="login-button8" ion-button color="positive" block>
+    <button id="login-button8" ion-button color="positive" block (click)="login()" >
       Log in
     </button>
     <button id="login-button9" ion-button clear color="positive" block on-click="goToSignup()">

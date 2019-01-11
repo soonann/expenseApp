@@ -2,7 +2,8 @@ export class Expense {
 
  
     status?: string;
-
+    user?: string;
+    
     constructor(
       public date: string,
       public amount: number,

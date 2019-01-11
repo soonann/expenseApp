@@ -19,6 +19,9 @@ import { FormsModule }   from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { ExpenseFbProvider } from '../providers/expense-firebase';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthService } from '../providers/auth-service';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyA6EGf4dw03QiPcOAg55VuDXCAHdeJrDu8",
@@ -47,6 +50,7 @@ const firebaseConfig = {
     BrowserModule,
     FormsModule,
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp)
 
@@ -64,6 +68,7 @@ const firebaseConfig = {
     ProfilePage
   ],
   providers: [
+    AuthService,
     Camera,
     StatusBar,
     SplashScreen,

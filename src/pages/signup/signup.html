@@ -10,26 +10,29 @@
 </ion-header>
 <ion-content padding id="page5">
   <form id="signup-form2">
+    <ion-list>
     <ion-item id="signup-input5">
       <ion-label>
         Name
       </ion-label>
-      <ion-input type="text" placeholder=""></ion-input>
+      <ion-input type="text" placeholder="" [(ngModel)]="user.name" name="name" ></ion-input>
     </ion-item>
     <ion-item id="signup-input6">
       <ion-label>
         Email
       </ion-label>
-      <ion-input type="email" placeholder=""></ion-input>
+      <ion-input type="email" placeholder="" [(ngModel)]="user.email" name="email"  ></ion-input>
     </ion-item>
     <ion-item id="signup-input7">
       <ion-label>
         Password
       </ion-label>
-      <ion-input type="password" placeholder=""></ion-input>
+      <ion-input type="password" placeholder="" [(ngModel)]="user.password" name="password" ></ion-input>
     </ion-item>
-  </form>
-  <button id="signup-button7" ion-button color="positive" block>
+ </ion-list>
+ <div ion-text padding-left color="danger"> {{signupError}} </div>   
+  <button id="signup-button7" ion-button color="positive"  (click)="signup()" block>
     Sign up
-  </button>
+  </button> 
+</form>
 </ion-content>

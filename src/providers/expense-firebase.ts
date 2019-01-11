@@ -3,7 +3,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Expense } from '../models/expense';
-
+import { AuthService } from './auth-service';
  
 
 @Injectable()
@@ -12,7 +12,7 @@ export class ExpenseFbProvider {
 
   expenseList: Expense[]; // Stores the expense list for search functionality
 
-  constructor(private db: AngularFireDatabase) {
+  constructor(private db: AngularFireDatabase,  private authService: AuthService) {
 
   }
 
@@ -72,6 +72,19 @@ export class ExpenseFbProvider {
 
   addItem(item) {
 
+    let user = this.authService.getCurrentUser();
+
+    if (user != null){
+
+      if (user.displayName != null)
+
+        item.user = user.displayName;
+
+      else if (user.email != null)
+
+        item.user = user.email;
+
+    }
     this.db.list('/expenseItems/').push(item);
 
   }
